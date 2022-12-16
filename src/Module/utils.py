@@ -18,3 +18,22 @@ def load_config():
 
 
 # %%
+
+def load_file(path, file_name, file_type):
+    '''
+    path : path to the file
+    file_name : full name of the file
+    file_type : csv, pickle, feather
+    '''
+    if file_type == 'csv':
+        return pd.read_csv(Path(path).joinpath(file_name))
+    
+    elif file_type =='pickle':
+        return pd.read_pickle(Path(path).joinpath(file_name))
+    
+    else : 
+        return pd.read_feather(Path(path).joinpath(file_name))
+    
+
+    
+    
